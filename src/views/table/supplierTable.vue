@@ -62,7 +62,7 @@
 
       <el-table-column :label="$t('table.undoNum')" width="150" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.needNum}}</span>
+          <span>{{ scope.row.undoNum}}</span>
         </template>
       </el-table-column>
 

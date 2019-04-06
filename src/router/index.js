@@ -52,7 +52,7 @@ export const asyncRouterMap = [
     redirect: '/supplierManager/index',
     meta: {
       icon: 'table',
-      roles: ['buyer', 'supplier']
+      roles: ['buyer']
     },
     children: [
       {

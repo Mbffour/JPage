@@ -61,7 +61,7 @@
 
       <el-table-column :label="$t('table.undoNum')" width="100" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.needNum}}</span>
+          <span>{{ scope.row.undoNum}}</span>
         </template>
       </el-table-column>
 
@@ -425,7 +425,6 @@ export default {
     }
   },
   created() {
-    this.getType()
     this.getList()
   },
   methods: {
@@ -499,6 +498,7 @@ export default {
 
           confirmOrderDetail(this.detailInfos).then((response) => {
            // alert(JSON.stringify(response))
+              this.getList()
                this.$notify({
               title: '成功',
               message: '创建成功',
@@ -506,7 +506,6 @@ export default {
               duration: 1500
             })
             this.detailFormVisible = false;
-            getList()
           })
         }
       })
@@ -520,13 +519,13 @@ export default {
         message: '确认成功',
         type: 'success'
           })
-        row.state=4;
+           this.getList()
       })
 
     },
     handleConfirmDetail(row){
         this.orderTitle="订单号"+row.orderNumber+'\xa0\xa0\xa0\xa0\xa0\xa0'+"采购商:"+supplierTypeKeyValue[row.supplierID]+'\xa0\xa0\xa0\xa0\xa0\xa0'+"货物名称:"+row.goodsName+'\xa0\xa0\xa0\xa0\xa0\xa0'+"订购数量:"+row.needNum
-      +'\xa0\xa0\xa0\xa0\xa0\xa0'+'未交数量:'+row.undoNum+'\xa0\xa0\xa0\xa0\xa0\xa0'+"交货期限:"+parseTime(row.endTime,'{y}-{m}-{d} {h}:{i}')
+      +'\xa0\xa0\xa0\xa0\xa0\xa0'+'未交数量:'+row.undoNum+'\xa0\xa0\xa0\xa0\xa0\xa0'+"交货期限:"+parseTime(row.endTime,'{y}-{m}-{d}')
         this.resetDetail()
 
         var data = new Object()
@@ -538,6 +537,7 @@ export default {
         })
     },
     getList() {
+      this.getType()
       this.listLoading = true
       getOrderList(this.listQuery).then(response => {
         
