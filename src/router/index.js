@@ -39,8 +39,8 @@ export const constantRouterMap = [
 ]
 
 export default new Router({
-  base: '/JHJC/',
-  // mode: 'history', //后端支持可开
+  base: '/JHJC',
+  mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
