@@ -22,10 +22,8 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } else {
-      alert('权限接口')
       if (store.getters.roles.length === 0) {
         store.dispatch('GetInfo').then(res => {
-          alert('拉取用户1111')
           // 拉取用户信息
           const roles = res.data.roles // note: roles must be a array! such as: ['editor','develop']
           store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
@@ -39,7 +37,6 @@ router.beforeEach((to, from, next) => {
           })
         })
       } else {
-        alert(555555)
         // 没有动态改变权限的需求可直接next() 删除下方权限判断 ↓
         if (hasPermission(store.getters.roles, to.meta.roles)) {
           next()

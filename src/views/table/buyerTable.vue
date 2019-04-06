@@ -123,13 +123,15 @@
           </el-button>
 
 
+          <el-button  v-if="scope.row.orderStat>=3" size="small" @click="handleShowDetail(scope.row)">{{ $t('table.showDetail') }}
+          </el-button>
+
            <el-button type="primary" v-if="scope.row.orderStat==3" size="small" @click="handleConfirmOrder(scope.row)">{{ $t('table.confirmOrder') }}
           </el-button>
 
           <el-button  type="success" v-if="scope.row.orderStat==4" size="small" @click="handleConfirmDetail(scope.row)">{{ $t('table.confirmDetail') }}
           </el-button>
-          <el-button  v-if="scope.row.orderStat>=3" size="small" @click="handleShowDetail(scope.row)">{{ $t('table.showDetail') }}
-          </el-button>
+      
 
         
           
@@ -448,7 +450,6 @@ export default {
           return;
       }
       this.detailInfos.pop();
-      alert(JSON.stringify(this.detailInfos))
     },
     getType(){
           supplierTypeOptions.length=0;
@@ -473,7 +474,7 @@ export default {
        this.detailListQuery.orderId=row.orderId
        getOrderDetail(this.detailListQuery).then(response =>{
 
-        alert(JSON.stringify(response))
+        //alert(JSON.stringify(response))
         this.detailTotal=0;
         this.detailList = [];
         this.orderTitle ="";
@@ -494,10 +495,10 @@ export default {
         if (valid) {
           //this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
           //this.temp.author = 'vue-element-admin'
-          alert(JSON.stringify(this.detailInfos))
+          //alert(JSON.stringify(this.detailInfos))
 
           confirmOrderDetail(this.detailInfos).then((response) => {
-            alert(JSON.stringify(response))
+           // alert(JSON.stringify(response))
                this.$notify({
               title: '成功',
               message: '创建成功',
@@ -555,7 +556,7 @@ export default {
       })
     },
     handleFilter() {
-      alert(JSON.stringify(this.listQuery))
+      //alert(JSON.stringify(this.listQuery))
       this.listQuery.page = 1
       this.getType()
       this.getList()
@@ -578,7 +579,7 @@ export default {
        var data = {orderId:row.orderId}
        deleteOrder(data).then(response=>{
 
-        alert(JSON.stringify(response))
+        //alert(JSON.stringify(response))
         for (var i = 0; i < this.list.length; i++) {
               if (this.list[i].orderId == row.orderId) {
                     this.list.splice(i, 1);
@@ -658,7 +659,7 @@ export default {
         if (valid) {
           //this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
           //this.temp.author = 'vue-element-admin'
-          alert(JSON.stringify(this.temp))
+          //alert(JSON.stringify(this.temp))
           createOrder(this.temp).then((response) => {
               if(this.list.length==0){
               this.list.push(response.data)
@@ -678,7 +679,7 @@ export default {
     },
     handleUpdate(row) {
 
-      alert(JSON.stringify(this.temp))
+      //alert(JSON.stringify(this.temp))
       this.resetTemp2(row)
       this.dialogStatus = 'update'
       this.dialogFormVisible = true

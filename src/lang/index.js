@@ -11,13 +11,13 @@ import esLocale from './es'
 Vue.use(VueI18n)
 
 const messages = {
-  en: {
-    ...enLocale,
-    ...elementEnLocale
-  },
   zh: {
     ...zhLocale,
     ...elementZhLocale
+  },
+  en: {
+    ...enLocale,
+    ...elementEnLocale
   },
   es: {
     ...esLocale,

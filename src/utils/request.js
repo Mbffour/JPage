@@ -41,7 +41,6 @@ service.interceptors.response.use(
    * 以下代码均为样例，请结合自生需求加以修改，若不需要，则可删除
    */
   response => {
-    alert(JSON.stringify(response))
     const res = response.data
     if (res.code !== 1 && res.code !== 20000) {
       Message({

@@ -322,23 +322,23 @@ export default {
       var t = 't'+size
       var n =  'n'+size
       this.detailInfo.push({time:t,num:n})
-      alert(JSON.stringify(this.detailInfo))
+     // alert(JSON.stringify(this.detailInfo))
     },
       deleterow(){
       // var size = this.detailInfo.length;
       // var t = 't'+size
       // var n =  'n'+size
       this.detailInfo.pop();
-      alert(JSON.stringify(this.detailInfo))
+     // alert(JSON.stringify(this.detailInfo))
     },
     
      
 
     getDetailList() {
-       alert("调用getDetailList接口")
+       //alert("调用getDetailList接口")
        getOrderDetail(this.detailListQuery).then(response =>{
 
-        alert(JSON.stringify(response))
+       // alert(JSON.stringify(response))
 
         this.detailTotal=0;
         this.detailList = [];
@@ -389,7 +389,7 @@ export default {
        var data = {orderId:row.orderId}
        deleteOrder(data).then(response=>{
 
-        alert(JSON.stringify(response))
+       // alert(JSON.stringify(response))
         for (var i = 0; i < this.list.length; i++) {
               if (this.list[i].orderId == row.orderId) {
                     this.list.splice(i, 1);
@@ -458,10 +458,10 @@ export default {
         if (valid) {
           //this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
           //this.temp.author = 'vue-element-admin'
-          alert(JSON.stringify(this.detail))
+         // alert(JSON.stringify(this.detail))
 
           createOrderDetail(this.detail).then((response) => {
-            alert(JSON.stringify(response))
+            //alert(JSON.stringify(response))
             this.dialogFormVisible = false
             this.$notify({
               title: '成功',
@@ -475,7 +475,7 @@ export default {
     },
 
     handleAddDetail(row){
-      alert(JSON.stringify(row))
+     // alert(JSON.stringify(row))
       this.resetDetail()
       this.detail.orderId=row.orderId
     
@@ -502,7 +502,7 @@ export default {
        this.detailListQuery.orderId=row.orderId
        getOrderDetail(this.detailListQuery).then(response =>{
 
-        alert(JSON.stringify(response))
+       // alert(JSON.stringify(response))
         this.detailTotal=0;
         this.detailList = [];
         this.orderTitle ="";

@@ -33,7 +33,6 @@ export function deleteOrder(data) {
 }
 
 export function updateOrder(data) {
-  alert(JSON.stringify(data))
   data.endTime = data.timestamp.getTime()
   return request({
     url: '/order/buyer/update',

@@ -2,7 +2,7 @@ export default {
   route: {
     orderManger: '订单管理',
     supplierManager: '供应商设置',
-    dashboard: '首页111',
+    dashboard: '首页',
     introduction: '简述',
     documentation: '文档',
     guide: '引导页',
