@@ -233,7 +233,8 @@ export default {
         1: '等待供应商确认',
         2: '待完善发货表',
         3: '等待采购方确认发货表',
-        4: '发货表确认发货中'
+        4: '发货表确认发货中',
+        5: '已完成'
       }
        // alert('statusFilter:'+statusNameMap[status]+"||"+JSON.stringify(status))
       return statusNameMap[status]
@@ -469,6 +470,7 @@ export default {
               type: 'success',
               duration: 1500
             })
+             this.getList()
           })
         }
       })
@@ -479,8 +481,9 @@ export default {
       this.resetDetail()
       this.detail.orderId=row.orderId
     
+    //’未交数量:'+row.undoNum+
       this.orderTitle="订单号"+row.orderNumber+'\xa0\xa0\xa0\xa0\xa0\xa0'+"采购商:"+row.buyerName+'\xa0\xa0\xa0\xa0\xa0\xa0'+"货物名称:"+row.goodsName+'\xa0\xa0\xa0\xa0\xa0\xa0'+"数量:"+row.needNum
-      +'\xa0\xa0\xa0\xa0\xa0\xa0'+"交货期限:"+parseTime(row.endTime,'{y}-{m}-{d} {h}:{i}')
+      +'\xa0\xa0\xa0\xa0\xa0\xa0'+'未交数量:'+row.undoNum+'\xa0\xa0\xa0\xa0\xa0\xa0'+"交货期限:"+parseTime(row.endTime,'{y}-{m}-{d} ')
       this.dialogFormVisible = true
     },
     handleConfirmStatus(row,type) {

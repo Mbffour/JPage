@@ -351,7 +351,8 @@ export default {
         1: '等待供应商确认',
         2: '等待供应商填写发货表',
         3: '等待确认发货表',
-        4: '发货进行中'
+        4: '发货进行中',
+        5: '已完成'
       }
        // alert('statusFilter:'+statusNameMap[status]+"||"+JSON.stringify(status))
       return statusNameMap[status]
@@ -570,6 +571,7 @@ export default {
     getList() {
       this.getType()
       this.listLoading = true
+      this.listQuery.orderState=5; 
       getOrderList(this.listQuery).then(response => {
         
         

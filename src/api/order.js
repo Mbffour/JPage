@@ -88,6 +88,20 @@ export function confirmOrderDetail(data) {
     data
   })
 }
+export function backOrderSend(data) {
+  return request({
+    url: '/order/back/send',
+    method: 'post',
+    data
+  })
+}
+export function endOrderSend(data) {
+  return request({
+    url: '/order/end',
+    method: 'post',
+    data
+  })
+}
 export function confirmOrderSend(data) {
   return request({
     url: '/order/confirm/send',

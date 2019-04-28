@@ -1,5 +1,7 @@
 export default {
   route: {
+    orderHandle: '处理订单',
+    finishOrder: '已完成订单',
     orderManger: '订单管理',
     supplierManager: '供应商设置',
     dashboard: '首页',
@@ -106,6 +108,8 @@ export default {
     imageUploadTips: '由于我在使用时它只有vue@1版本，而且和mockjs不兼容，所以自己改造了一下，如果大家要使用的话，优先还是使用官方版本。'
   },
   table: {
+    endDetail: '完成订单',
+    backOrder: '退回',
     confirmOrder: '确认发货表',
     deliver2: '交货时间-应-实',
     confirmDetail: '确认收货',

@@ -68,6 +68,7 @@ export const asyncRouterMap = [
     component: Layout,
     name: 'Table',
     meta: {
+      title: 'orderManger',
       icon: 'table',
       roles: ['buyer']
     },
@@ -76,7 +77,13 @@ export const asyncRouterMap = [
         path: 'index',
         component: () => import('@/views/table/buyerTable'),
         name: 'orderManger',
-        meta: { title: 'orderManger' }
+        meta: { title: 'orderHandle' }
+      },
+      {
+        path: 'finish',
+        component: () => import('@/views/table/finishTable'),
+        name: 'finishOrder',
+        meta: { title: 'finishOrder' }
       }
     ]
   },
